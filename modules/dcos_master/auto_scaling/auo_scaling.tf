@@ -1,7 +1,7 @@
 resource "aws_autoscaling_group" "master_asg" {
   lifecycle { create_before_destroy = true }
   vpc_zone_identifier = ["${var.master_subnet_id}"]
-  name = "dcos-master-autoscaling-group"
+  name = "${var.project_tag}-dcos-master-asg"
   max_size = "${var.asg_max}"
   min_size = "${var.asg_min}"
   wait_for_elb_capacity = false

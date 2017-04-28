@@ -9,7 +9,7 @@ provider "aws" {
   region = "${var.region}"
 }
 module "launch_configurations" {
-  source = "../../dcos/master/launch_config"
+  source = "../../modules/dcos_master/launch_config"
   centos_base_ami = "${var.centos_base_ami}"
   instance_type = "${var.instance_type}"
   mgmt_security_group_id = "{var.mgmt_security_group_id}"
@@ -18,12 +18,12 @@ module "launch_configurations" {
   project_tag = "${var.project_tag}"
 }
 module "load_balancers" {
-  source = "../../dcos/master/elb/"
+  source = "../../modules/dcos_master/elb/"
   master_subnet_id = "${var.master_subnet_id}"
   master_elb_sg = "${var.elb_security_group_id}"
 }
 module "autoscaling_groups" {
-  source = "../master/auto_scaling/"
+  source = "../../modules/dcos_master/auto_scaling/"
   project_tag = "${var.project_tag}"
   master_subnet_id = "${var.master_subnet_id}"
   asg_min = "${var.asg_min}"
