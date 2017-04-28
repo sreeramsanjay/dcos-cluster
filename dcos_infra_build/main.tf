@@ -1,0 +1,45 @@
+terraform {
+  backend "s3" {
+    bucket = "aa-tf-status"
+    key    = "iaas-pilot/dcos-infra.tfstatus"
+    region = "us-east-1"
+  }
+}
+provider "aws" {
+  region = "${var.region}"
+}
+module "ec2_profile" {
+  source = "../../dcos/dcos_infra/ec2_profile"
+  master_ec2_instance_profile_name =  "${var.master_ec2_instance_profile_name}"
+  master_iam_role_policy_name  = "${var.master_iam_role_policy_name}"
+  master_iam_role_name  = "${var.master_iam_role_name}"
+  agent_ec2_instance_profile_name  = "${var.agent_ec2_instance_profile_name}"
+  agent_iam_role_policy_name  = "${var.agent_iam_role_policy_name}"
+  agent_iam_role_name  = "${var.agent_iam_role_name}"
+}
+module "security_groups" {
+  source = "../../dcos/dcos_infra/sg_dcos"
+  vpc_id = "${var.vpc_id}"
+  vpc_cidr = "${var.vpc_cidr}"
+  project_tag = "${var.project_tag}"
+}
+
+output "master_sg_id" {
+  value = "${module.security_groups.master_security_group_id}"
+}
+output "priv_sg_id" {
+  value = "${module.security_groups.priv_security_group_id}"
+}
+output "pub_sg_id" {
+  value = "${module.security_groups.pub_agent_security_group_id}"
+}
+output "elb_sg_id" {
+  value = "${module.security_groups.elb_security_group_id}"
+}
+output "master_ec2_instance_profile" {
+  value = "${module.ec2_profile.master_ec2_instance_profile}"
+}
+output "agents_ec2_instance_profile" {
+  value = "${module.ec2_profile.agents_ec2_instance_profile}"
+}
+
