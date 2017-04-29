@@ -41,7 +41,7 @@ variable "master_ec2_instance_profile" {
  default = "dcos_agent_ec2_instance_profile"
 }
 variable "elb_security_group_id" {
- default = "sg-05b65b7b"
+ default = "sg-6c19f212"
 }
 variable "master_security_group_id" {
  default = "sg-4cb35e32"

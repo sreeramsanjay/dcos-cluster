@@ -6,8 +6,8 @@
        "Sid": "Access-to-specific-VPC-only",
        "Action": "s3:*",
        "Effect": "Deny",
-       "Resource": ["arn:aws:s3:::iaas_pilot_bs",
-                    "arn:aws:s3:::iaas_pilot_bs/*"],
+       "Resource": ["arn:aws:s3:::iaas-pilot-bs",
+                    "arn:aws:s3:::iaas-pilot-bs/*"],
        "Condition": {
          "StringNotEquals": {
            "aws:sourceVpc": "vpc-a3123fc5"

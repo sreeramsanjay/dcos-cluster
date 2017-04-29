@@ -15,7 +15,7 @@ variable "availability_zones" {
   default = ["us-east-1c", "us-east-1d"]
 }
 variable "private_subnet_id" {
-  default = "subnet-4e444015"
+  default = "subnet-fcc71cb4"
 }
 variable "centos_base_ami" {
   default = "ami-47096750"
@@ -34,4 +34,7 @@ variable "node_name" {
 }
 variable "bucket_name" {
   default = "iaas_pilot_bs"
+}
+variable "mgmt_security_group_id" {
+  default = "sg-2304ef5d"
 }

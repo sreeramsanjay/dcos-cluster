@@ -9,6 +9,6 @@ resource "aws_s3_bucket" "zk_bucket" {
 }
 
 output "zk_s3_bucket" {
-  value = "${aws_s3_bucket.zk_bucket.name}"
+  value = "${aws_s3_bucket.zk_bucket.id}"
 }
 
