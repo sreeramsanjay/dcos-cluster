@@ -23,7 +23,7 @@ resource "aws_iam_instance_profile" "master_instance_profile" {
 
 resource "aws_iam_policy" "master_iam_policy" {
 name = "${var.master_iam_role_policy_name}"
-policy = "${file("../dcos_infra/ec2_profile/master_policy.json")}"
+policy = "${file("../../modules/dcos_infra/ec2_profile/master_policy.json")}"
 }
 
 resource "aws_iam_policy_attachment" "master_policy" {

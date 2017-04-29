@@ -23,7 +23,7 @@ resource "aws_iam_instance_profile" "agent_instance_profile" {
 
 resource "aws_iam_policy" "agent_iam_policy" {
 name = "${var.agent_iam_role_policy_name}"
-policy = "${file("../dcos_infra/ec2_profile/agent_policy.json")}"
+policy = "${file("../../modules/dcos_infra/ec2_profile/agent_policy.json")}"
 }
 
 resource "aws_iam_policy_attachment" "agent_policy" {

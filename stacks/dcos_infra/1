@@ -23,11 +23,7 @@ module "security_groups" {
   vpc_cidr = "${var.vpc_cidr}"
   project_tag = "${var.project_tag}"
 }
-module "zk_s3_bucket" {
- source = "../../modules/dcos_infra/s3_bucket"
- project_tag = "${var.project_tag}"
- zk_bucket_name = "${var.zk_bucket_name}"
-}
+
 output "master_sg_id" {
   value = "${module.security_groups.master_security_group_id}"
 }
@@ -46,6 +42,4 @@ output "master_ec2_instance_profile" {
 output "agents_ec2_instance_profile" {
   value = "${module.ec2_profile.agents_ec2_instance_profile}"
 }
-output "zk_s3_bucket" {
-  value = "${module.zk_s3_bucket.zk_s3_bucket}"
-}
+

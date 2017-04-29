@@ -35,3 +35,6 @@ variable "agent_iam_role_policy_name" {
 variable "agent_iam_role_name" {
    default = "dcos_agent_role"
 }
+variable "zk_bucket_name" {
+   default = "iaas-pilot-zk"
+}
