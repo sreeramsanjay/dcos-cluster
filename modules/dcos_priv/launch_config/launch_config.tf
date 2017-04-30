@@ -8,7 +8,7 @@ resource "aws_launch_configuration" "priv_lc" {
   #  "${var.mgmt_security_group_id}"
   #]
   security_groups = ["sg-2304ef5d", "sg-d91af1a7"]
-  #user_data = "${file("./launch_configurations/userdata.sh")}"
+  user_data = "${file("./userdata.sh")}"
   key_name = "${var.ssh_key_name}"
   #iam_instance_profile = "${var.dcos_master_ec2_instance_profile}"
   iam_instance_profile = "dcos_agent_ec2_instance_profile"

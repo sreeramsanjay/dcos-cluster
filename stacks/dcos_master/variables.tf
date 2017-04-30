@@ -16,10 +16,10 @@ variable "availability_zones" {
 }
 variable "master_subnet_id" {
   type = "list"
-  default = ["subnet-87fb20cf", "subnet-fdb552a7"]
+  default = ["subnet-fcc71cb4", "subnet-3db45367"]
 }
 variable "centos_base_ami" {
-  default = "ami-47096750"
+  default = "ami-6d1c2007"
 }
 variable "project_tag" {
   default = "IaaS-Pilot"
@@ -28,7 +28,7 @@ variable "ssh_key_name" {
   default = "RACONAWS"
 }
 variable "instance_type" {
-  default = "t2.micro"
+  default = "m4.large"
 }
 variable "mgmt_security_group_id" {
  default = "sg-c60c33b9"
@@ -53,8 +53,8 @@ variable "priv_security_group_id" {
  default = "sg-4db35e33"
 }
 variable "asg_min" {
-  default = "1"
+  default = "3"
 }
 variable "asg_max" {
-  default = "1"
+  default = "3"
 }

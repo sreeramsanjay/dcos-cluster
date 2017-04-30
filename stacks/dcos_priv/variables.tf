@@ -16,10 +16,10 @@ variable "availability_zones" {
 }
 variable "priv_agent_subnet_id" {
   type = "list"
-  default = ["subnet-87fb20cf", "subnet-fdb552a7"]
+  default = ["subnet-faf922b2", "subnet-57b7500d"]
 }
 variable "centos_base_ami" {
-  default = "ami-47096750"
+  default = "ami-6d1c2007"
 }
 variable "project_tag" {
   default = "IaaS-Pilot"
@@ -53,8 +53,8 @@ variable "priv_security_group_id" {
  default = "sg-4db35e33"
 }
 variable "asg_min" {
-  default = "1"
+  default = "2"
 }
 variable "asg_max" {
-  default = "1"
+  default = "2"
 }

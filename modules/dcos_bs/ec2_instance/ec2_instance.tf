@@ -7,5 +7,16 @@ resource "aws_instance" "instance" {
   subnet_id = "${var.private_subnet_id}"
   vpc_security_group_ids = ["${var.sec_grp_list}"]
   key_name = "${var.ssh_key_name}"
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum install -y epel-release",
+      "sudo yum install -y ansible",
+    ]
+    connection {
+	type = "ssh"
+        user = "centos"
+        private_key = "${file("/home/centos/genconf/ssh-key")}"
+    }
+  }
 }
 

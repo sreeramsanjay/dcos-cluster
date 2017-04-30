@@ -15,7 +15,7 @@ variable "availability_zones" {
   default = ["us-east-1c", "us-east-1d"]
 }
 variable "private_subnet_id" {
-  default = "subnet-fcc71cb4"
+  default = "subnet-faf922b2"
 }
 variable "centos_base_ami" {
   default = "ami-47096750"
