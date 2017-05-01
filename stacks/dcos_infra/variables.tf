@@ -14,6 +14,10 @@ variable "availability_zones" {
   type = "list"
   default = ["us-east-1c", "us-east-1d"]
 }
+variable "master_subnet_id" {
+  type = "list"
+  default = ["subnet-fcc71cb4", "subnet-3db45367"]
+}
 variable "project_tag" {
   default = "IaaS-Pilot"
 }
@@ -40,4 +44,7 @@ variable "zk_bucket_name" {
 }
 variable "bs_bucket_name" {
    default = "iaas-pilot-bs"
+}
+variable "master_elb_name" {
+   default = "dcos"
 }

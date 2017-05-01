@@ -58,3 +58,6 @@ variable "asg_min" {
 variable "asg_max" {
   default = "3"
 }
+variable "master_elb_name" {
+  default = "dcos"
+}

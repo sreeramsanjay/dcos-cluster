@@ -12,6 +12,10 @@ resource "aws_launch_configuration" "priv_lc" {
   key_name = "${var.ssh_key_name}"
   #iam_instance_profile = "${var.dcos_master_ec2_instance_profile}"
   iam_instance_profile = "dcos_agent_ec2_instance_profile"
+  root_block_device {
+    volume_type = "standard"
+    volume_size = 150
+  }
 }
 output "priv_agent_lc_id" {
   value = "${aws_launch_configuration.priv_lc.id}"

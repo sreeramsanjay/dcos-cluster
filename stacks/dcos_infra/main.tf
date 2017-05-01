@@ -30,6 +30,12 @@ module "s3_buckets" {
  zk_bucket_name = "${var.zk_bucket_name}"
  bs_bucket_name = "${var.bs_bucket_name}"
 }
+module "load_balancers" {
+  source = "../../modules/dcos_infra/elb/"
+  master_subnet_id = "${var.master_subnet_id}"
+  master_elb_sg = "${module.security_groups.elb_security_group_id}"
+  elb_name = "${var.master_elb_name}"
+}
 output "sg_master_id" {
   value = "${module.security_groups.master_security_group_id}"
 }
@@ -56,5 +62,8 @@ output "s3_zk_bucket" {
 }
 output "s3_bs_bucket" {
   value = "${module.s3_buckets.bs_s3_bucket}"
+}
+output "master_elb_name" {
+  value = "${module.load_balancers.master_elb_name}"
 }
 

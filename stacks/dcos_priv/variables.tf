@@ -28,7 +28,7 @@ variable "ssh_key_name" {
   default = "RACONAWS"
 }
 variable "instance_type" {
-  default = "t2.micro"
+  default = "m4.large"
 }
 variable "mgmt_security_group_id" {
  default = "sg-c60c33b9"
